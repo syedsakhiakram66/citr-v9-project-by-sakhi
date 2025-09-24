@@ -1,0 +1,1 @@
+do the command npm i -D prettier 

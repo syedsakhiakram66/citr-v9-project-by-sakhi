@@ -1,0 +1,21 @@
+{
+  "name": "citr-v9-project-by-sakhi",
+  "version": "1.0.0",
+  "description": "my version of padre ginos, I am taking the Complete Intro to React, v9",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js, jsx, css, html}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syedsakhiakram66/citr-v9-project-by-sakhi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/syedsakhiakram66/citr-v9-project-by-sakhi/issues"
+  },
+  "homepage": "https://github.com/syedsakhiakram66/citr-v9-project-by-sakhi#readme"
+}
