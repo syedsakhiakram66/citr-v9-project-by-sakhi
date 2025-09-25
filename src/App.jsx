@@ -3,39 +3,43 @@ import Pizza from "./components/Pizza.jsx";
 
 
 const App = () => {
-    return React.createElement (
-        "div",
-        {},
-        [
-        React.createElement (
-            "h1", {}, "Padre Gino's"
-        ),
-
-        React.createElement(Pizza, {
-            name: "The Pepporoni Pizza",
-            desc: "hmmm"
-        }),
-            React.createElement(Pizza, {
-            name: "Italian Pizza",
-            desc: "hmmm"
-        }),
-            React.createElement(Pizza, {
-            name: "Happy Pizza",
-            desc: "hmmm"
-        }),
-            React.createElement(Pizza, {
-            name: "Sad Pizza",
-            desc: "hmmm"
-        })
-    ]
-    )   
+    return (
+        <div>
+            <h1>Padre Gino's - Order Now</h1>
+            <Pizza name="S Pizza" desc="Flavorful trio of juicy beef, crisp capsicum with spicy red paprika"/>
+            <Pizza name="Veg" desc="Delightful combination of onion, capsicum, tomato & grilled mushroom"/>
+            <Pizza name="Mozrella Pizza" desc="A hugely popular mozzerella, with a deliciously tangy single cheese topping"/>
+            <Pizza name="Too Much Veg Pizza" desc="Black olives, capsicum, onion, grilled mushroom, corn, tomato, jalapeno & extra cheese"/>
+        </div>
+    )
+    
 }
 
 const container = document.getElementById("root");
 const root = ReactDOM.createRoot(container);
 root.render(React.createElement(App));
 
-// what this code does. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// what this code did. -- use version control to understand these comments better.
 
 /* 
 App is defined as a functional component, 
