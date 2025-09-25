@@ -1,43 +1,28 @@
-import {createRoot} from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import Pizza from "./components/Pizza.jsx";
 
-
 const App = () => {
-    return (
-        <div>
-            <h1>Padre Gino's - Order Now</h1>
-            <Pizza name="S Pizza" desc="Flavorful trio of juicy beef, crisp capsicum with spicy red paprika"/>
-            <Pizza name="Veg" desc="Delightful combination of onion, capsicum, tomato & grilled mushroom"/>
-            <Pizza name="Mozrella Pizza" desc="A hugely popular mozzerella, with a deliciously tangy single cheese topping"/>
-            <Pizza name="Too Much Veg Pizza" desc="Black olives, capsicum, onion, grilled mushroom, corn, tomato, jalapeno & extra cheese"/>
-        </div>
-    )
-    
-}
+  return (
+    <div>
+      <h1>Padre Gino's - Order Now</h1>
+      <Pizza name="Pepperoni" desc="Mozzarella Cheese, Pepperoni" image={"/public/pizzas/pepperoni.webp"}/>
+      <Pizza
+        name="The Hawaiian Pizza"
+        desc="Sliced Ham, Pineapple, Mozzarella Cheese"
+        image={"/public/pizzas/hawaiian.webp"}
+      />
+      <Pizza
+        name="The Big Meat Pizza"
+        desc="Bacon, Pepperoni, Italian Sausage, Chorizo Sausage"
+        image={"/public/pizzas/big_meat.webp"}
+      />
+    </div>
+  );
+};
 
 const container = document.getElementById("root");
 const root = ReactDOM.createRoot(container);
 root.render(React.createElement(App));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // what this code did. -- use version control to understand these comments better.
 
