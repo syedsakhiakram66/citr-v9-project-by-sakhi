@@ -9,3 +9,4 @@
 
 **Note:**  
 Add `"type": "module"` to your `package.json` to ensure your project uses ES modules and runs correctly.
+
