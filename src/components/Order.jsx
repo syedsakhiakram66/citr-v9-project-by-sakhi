@@ -1,8 +1,12 @@
+import { useState } from "react";
 import Pizza from "./Pizza";
 
 export default function Order() {
-  const pizzaType = "pepperoni";
-  const pizzaSize = "M";
+  // const pizzaType = "pepperoni";
+  // const pizzaSize = "M";
+
+  // Now we will be using a hook called useState to manage the state of the pizza type and size, this provides us with a static variable and a setter that we use to change it.
+  
   return (
     <div className="order">
       <h2>Create Order</h2>
