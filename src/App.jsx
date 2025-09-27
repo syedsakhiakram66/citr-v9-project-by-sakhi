@@ -1,5 +1,6 @@
-import { createRoot } from "react-dom/client";
+import * as ReactDOM from "react-dom/client";
 import Order from "./components/Order";
+
 
 const App = () => {
   return (

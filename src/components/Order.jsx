@@ -6,6 +6,8 @@ export default function Order() {
   // const pizzaSize = "M";
 
   // Now we will be using a hook called useState to manage the state of the pizza type and size, this provides us with a static variable and a setter that we use to change it.
+  const [pizzaType, setPizzaType] = useState("pepperoni");
+  const [pizzaSize, setPizzaSize] = useState("M");
   
   return (
     <div className="order">
@@ -14,7 +16,11 @@ export default function Order() {
         <div>
           <div>
             <label htmlFor="pizza-type">Pizza Type</label>
-            <select name="pizza-type" value={pizzaType}>
+            <select
+              onChange={(e) => setPizzaType(e.target.value)}
+              name="pizza-type"
+              value={pizzaType}
+            >
               <option value="pepperoni">The Pepperoni Pizza</option>
               <option value="hawaiian">The Hawaiian Pizza</option>
               <option value="big_meat">The Big Meat Pizza</option>
@@ -26,6 +32,7 @@ export default function Order() {
               <span>
                 <input
                   checked={pizzaSize === "S"}
+                  onChange={(e) => setPizzaSize(e.target.value)}
                   type="radio"
                   name="pizza-size"
                   value="S"
@@ -36,6 +43,7 @@ export default function Order() {
               <span>
                 <input
                   checked={pizzaSize === "M"}
+                  onChange={(e) => setPizzaSize(e.target.value)}
                   type="radio"
                   name="pizza-size"
                   value="M"
@@ -46,6 +54,7 @@ export default function Order() {
               <span>
                 <input
                   checked={pizzaSize === "L"}
+                  onChange={(e) => setPizzaSize(e.target.value)}
                   type="radio"
                   name="pizza-size"
                   value="L"
