@@ -17,7 +17,7 @@ The `useState` hook lets you manage state in your component. It provides two thi
 const [state, setState] = useState(initialState)
 ```
 
-#### Explanation
+#### Breakdown
 
 - `state`: The current value of the state variable, initialized with `initialState`.
 - `setState`: A function to update the state variable.
