@@ -1,14 +1,38 @@
 import { useState } from "react";
 import Pizza from "./Pizza";
 
+const intl = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+
 export default function Order() {
   // const pizzaType = "pepperoni";
   // const pizzaSize = "M";
-
-  // Now we will be using a hook called useState to manage the state of the pizza type and size, this provides us with a static variable and a setter that we use to change it.
+  const [pizzaTypes, setPizzaTypes] = useState([]);
   const [pizzaType, setPizzaType] = useState("pepperoni");
   const [pizzaSize, setPizzaSize] = useState("M");
-  
+  const [loading, setLoading] = useState(false); // this helps us with ui, as we will be now waiting for the requests we do to the api
+
+  let price, selectedPizza;
+
+if (!loading) {
+    selectedPizza = pizzaTypes.find((pizza) => pizzaType === pizza.id); 
+    // Once the loading is over, update the selectedPizza variable 
+    // to the pizza object that matches the selected pizzaType ID
+}
+
+async function fetchPizzaTypes() {
+  const pizzaRes = await fetch("http://localhost:3000/pizzas");
+  const pizzaJson = await pizzaRes.json
+  setPizzaTypes(pizzaJson)
+  setLoading(false)
+}
+
+useEffect(async () => {
+  fetchPizzaTypes();
+}, []) // the empty array means it will only run once when the component mounts
+
   return (
     <div className="order">
       <h2>Create Order</h2>
@@ -21,9 +45,13 @@ export default function Order() {
               name="pizza-type"
               value={pizzaType}
             >
-              <option value="pepperoni">The Pepperoni Pizza</option>
-              <option value="hawaiian">The Hawaiian Pizza</option>
-              <option value="big_meat">The Big Meat Pizza</option>
+            {
+              pizzaTypes.map((pizza) => (
+                <option key={pizza.id} value={pizza.id}>
+                  {pizza.name}
+                  </option>
+              ))  
+            }
             </select>
           </div>
           <div>
