@@ -1,5 +1,6 @@
 import * as ReactDOM from "react-dom/client";
 import Order from "./components/Order";  
+import PizzaOfTheDay from "./components/PizzaOfTheDay";
    
 
 const App = () => {
@@ -7,6 +8,7 @@ const App = () => {
     <div>
       <h1>Padre Gino's - Order Now</h1>
       <Order />
+      <PizzaOfTheDay />
     </div>
   );
 };
