@@ -41,6 +41,7 @@ export default function Order() {
   }
 
   return (
+    <div className="order-page">
     <div className="order">
       <h2>Create Order</h2>
       <form
@@ -116,7 +117,9 @@ export default function Order() {
           </div>
         )}
       </form>
-      {
+  
+    </div>
+        {
         loading ? <p>Loading...</p> : <Cart cart={cart} />
       }
     </div>
