@@ -13,7 +13,7 @@ export default function Order() {
   const [pizzaTypes, setPizzaTypes] = useState([]);
   const [pizzaType, setPizzaType] = useState("pepperoni");
   const [pizzaSize, setPizzaSize] = useState("M");
-  const [loading, setLoading] = useState(true); // this helps us with ui, as we will be now waiting for the requests we do to the api
+  const [loading, setLoading] = useState(false); // this helps us with ui, as we will be now waiting for the requests we do to the api
 
   useEffect(() => {
     fetchPizzaTypes();
