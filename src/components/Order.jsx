@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Pizza from "./Pizza";
+
 
 const intl = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -22,16 +23,19 @@ if (!loading) {
     // to the pizza object that matches the selected pizzaType ID
 }
 
-async function fetchPizzaTypes() {
-  const pizzaRes = await fetch("http://localhost:3000/pizzas");
-  const pizzaJson = await pizzaRes.json
-  setPizzaTypes(pizzaJson)
-  setLoading(false)
-}
-
 useEffect(async () => {
   fetchPizzaTypes();
 }, []) // the empty array means it will only run once when the component mounts
+
+async function fetchPizzaTypes() {
+  
+  const pizzaRes = await fetch("/api/pizzas");
+  const pizzaJson = await pizzaRes.json();
+  setPizzaTypes(pizzaJson);
+  setLoading(false);
+}
+
+
 
   return (
     <div className="order">
