@@ -13,9 +13,11 @@ export default function Order() {
   const [pizzaTypes, setPizzaTypes] = useState([]);
   const [pizzaType, setPizzaType] = useState("pepperoni");
   const [pizzaSize, setPizzaSize] = useState("M");
-  const [loading, setLoading] = useState(false); // this helps us with ui, as we will be now waiting for the requests we do to the api
+  const [loading, setLoading] = useState(true); // this helps us with ui, as we will be now waiting for the requests we do to the api
 
   let price, selectedPizza;
+
+ 
 
 if (!loading) {
     selectedPizza = pizzaTypes.find((pizza) => pizzaType === pizza.id); 
@@ -23,7 +25,7 @@ if (!loading) {
     // to the pizza object that matches the selected pizzaType ID
 }
 
-useEffect(async () => {
+useEffect(() => {
   fetchPizzaTypes();
 }, []) // the empty array means it will only run once when the component mounts
 
@@ -34,7 +36,6 @@ async function fetchPizzaTypes() {
   setPizzaTypes(pizzaJson);
   setLoading(false);
 }
-
 
 
   return (
@@ -98,15 +99,21 @@ async function fetchPizzaTypes() {
           </div>
           <button type="submit">Add to Cart</button>
         </div>
-        <div className="order-pizza">
-          <Pizza
-            name="Pepperoni"
-            description="Mozzarella Cheese, Pepperoni"
-            image="/public/pizzas/pepperoni.webp"
-          />
-          <p>$13.37</p>
-        </div>
+   
+
+{selectedPizza && (
+    <div className="order-pizza">
+    <Pizza
+      name={selectedPizza.name}
+      description={selectedPizza.description}
+      image={selectedPizza.image}
+    />
+    <p>$13.17</p>
+  </div>
+
+)}
       </form>
     </div>
   );
+  
 }
