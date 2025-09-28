@@ -15,30 +15,33 @@ export default function Order() {
   const [pizzaSize, setPizzaSize] = useState("M");
   const [loading, setLoading] = useState(true); // this helps us with ui, as we will be now waiting for the requests we do to the api
 
+  useEffect(() => {
+    fetchPizzaTypes();
+  }, []); // the empty array means it will only run once when the component mounts
+
+  async function fetchPizzaTypes() {
+    const pizzaRes = await fetch("/api/pizzas");
+    const pizzaJson = await pizzaRes.json();
+    setPizzaTypes(pizzaJson);
+    setLoading(false);
+  }
+
   let price, selectedPizza;
 
- 
-
-if (!loading) {
-    selectedPizza = pizzaTypes.find((pizza) => pizzaType === pizza.id); 
+  if (!loading) {
+    selectedPizza = pizzaTypes.find((pizza) => pizzaType === pizza.id);
     // Once the loading is over, update the selectedPizza variable 
     // to the pizza object that matches the selected pizzaType ID
-}
-
-useEffect(() => {
-  fetchPizzaTypes();
-}, []) // the empty array means it will only run once when the component mounts
-
-async function fetchPizzaTypes() {
-  
-  const pizzaRes = await fetch("/api/pizzas");
-  const pizzaJson = await pizzaRes.json();
-  setPizzaTypes(pizzaJson);
-  setLoading(false);
-}
+    if (selectedPizza) {
+      price = intl.format(selectedPizza.sizes[pizzaSize]);
+      // Once the loading is over, update the price variable to the formatted price
+      // of the selected pizza size
+    }
+  }
 
 
   return (
+
     <div className="order">
       <h2>Create Order</h2>
       <form>
@@ -108,7 +111,7 @@ async function fetchPizzaTypes() {
       description={selectedPizza.description}
       image={selectedPizza.image}
     />
-    <p>$13.17</p>
+    <p>{price}</p>
   </div>
 
 )}
