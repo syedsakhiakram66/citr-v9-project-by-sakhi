@@ -1,12 +1,13 @@
 import * as ReactDOM from "react-dom/client";
 import Order from "./components/Order";  
 import PizzaOfTheDay from "./components/PizzaOfTheDay";
+import Header from "./components/Header";
    
 
 const App = () => {
   return (
     <div>
-      <h1 className="logo">Padre Gino's - Order Now</h1>
+      <Header />
       <Order />
       <PizzaOfTheDay />
     </div>
@@ -17,7 +18,7 @@ const container = document.getElementById("root");
 const root = ReactDOM.createRoot(container);
 root.render(React.createElement(App));
 
-// what this code did. -- use version control to understand these comments better.
+// what this code used to do. -- use version control to understand these comments better.
 
 /* 
 App is defined as a functional component, 
