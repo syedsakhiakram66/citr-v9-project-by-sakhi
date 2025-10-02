@@ -16,6 +16,24 @@ export default function Order() {
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(false); // this helps us with ui, as we will be now waiting for the requests we do to the api
 
+  async function checkout() {
+    setLoading(true)
+    
+    await fetch("/api/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ cart, 
+
+      }),
+    })
+
+    setCart([]);
+    setLoading(false)
+  
+  }
+
   useEffect(() => {
     fetchPizzaTypes();
   }, []); // the empty array means it will only run once when the component mounts
