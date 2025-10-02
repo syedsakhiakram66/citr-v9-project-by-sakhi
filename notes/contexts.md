@@ -1,0 +1,3 @@
+Context is used for the global state (app-level-state). This means that the state can be used in the entire app. All components will have access to the state in the app because the `useContext` hook.
+
+This is state that exists for your entire app. The currently logged in user would be a good example of this. You wouldn't want the user to exist in just the page level because once you navigate to another page, all state of the previous page is destroyed. You'd want that user info to persist between pages, and thus context is a good thing for that.  --- This is from Brian Holt's notes.
