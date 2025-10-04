@@ -56,3 +56,6 @@ coverage/
 # Storybook build output
 out/
 storybook-static/
+
+# Tanstack routeTree file
+src/routeTree.gen.ts
