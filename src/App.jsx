@@ -6,7 +6,6 @@ import { RouterProvider, createRouter } from "@tanstack/react-router";
 const router = createRouter({ routeTree });
 
 const App = () => {
-  const cartHook = useState([]);
   return (
     <div>
       <StrictMode>
