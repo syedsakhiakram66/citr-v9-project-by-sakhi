@@ -9,7 +9,7 @@ export const Route = createRootRoute({
     component: () => {
         const cartHook = useState([]);
         return (
-            <>
+            <> // the fragments are here because this only returns one element and we have two elements here
             <CartContext.Provider value={cartHook}>
                 <div>
                 <Header />
