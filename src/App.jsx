@@ -1,9 +1,8 @@
 import * as ReactDOM from "react-dom/client";
-import { StrictMode, useState } from "react";
-import Order from "./components/Order";  
-import PizzaOfTheDay from "./components/PizzaOfTheDay";
-import Header from "./components/Header";
-import { CartContext } from "./components/contexts";
+import { StrictMode} from "react";
+import {routeTree} from ".routeTree.gen"
+import { RouterProvider, createRouter } from "@tanstack/react-router";
+
    
 
 const App = () => {
@@ -11,11 +10,7 @@ const App = () => {
   return (
     <div>
       <StrictMode>
-    <CartContext.Provider value={cartHook}>
-      <Header />
-      <Order />
-      <PizzaOfTheDay />
-    </CartContext.Provider>
+        <RouterProvider router={router}>
       </StrictMode>
     </div>
   );
