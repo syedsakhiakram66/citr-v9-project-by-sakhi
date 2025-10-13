@@ -59,3 +59,6 @@ storybook-static/
 
 # Tanstack routeTree file
 src/routeTree.gen.ts
+
+# useless coverage folder
+coverage/
